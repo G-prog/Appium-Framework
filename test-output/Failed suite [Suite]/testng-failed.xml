@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Suite]]">
+  <test thread-count="5" name="Test(failed)(failed)">
+    <classes>
+      <class name="Practice.apiDemoTest">
+        <methods>
+          <include name="apiDemo"/>
+        </methods>
+      </class> <!-- Practice.apiDemoTest -->
+      <class name="Practice.ecommerce_tc_4">
+        <methods>
+          <include name="totalValidation"/>
+        </methods>
+      </class> <!-- Practice.ecommerce_tc_4 -->
+    </classes>
+  </test> <!-- Test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Suite]] -->
