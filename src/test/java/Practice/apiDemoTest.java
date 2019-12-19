@@ -16,7 +16,7 @@ public class apiDemoTest extends basic {
 	public void apiDemo(String input) throws IOException
 	
 	{
-		startServer();
+		//service=startServer();
 		AndroidDriver <AndroidElement>driver=Capabilities("apidemo");
 		driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='3. Preference dependencies']").click();
@@ -24,7 +24,7 @@ public class apiDemoTest extends basic {
 		driver.findElementByXPath("(//android.widget.RelativeLayout)[2]").click();
 		driver.findElementByClassName("android.widget.EditText").sendKeys("hello");
 		driver.findElementByXPath("//android.widget.Button[@text='OK']").click();	
-		service.stop();
+		//service.stop();
 		
 		//Xpath id,androiduiautomator
 		

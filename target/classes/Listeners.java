@@ -1,4 +1,4 @@
-/*package resources;
+package resources;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -11,7 +11,7 @@ import org.testng.ITestContext;
 
 
 
- public class Listeners extends basic  implements ITestListener  {
+ public class Listeners implements ITestListener  {
 	 
 	 @Override
 	 public  void onTestFailure(ITestResult result) {
@@ -29,4 +29,4 @@ import org.testng.ITestContext;
 
 	
 	
-}*/
+}

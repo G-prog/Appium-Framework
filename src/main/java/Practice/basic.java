@@ -20,35 +20,26 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 public class basic {
 	
-	public static AppiumDriverLocalService service;
+	//public static AppiumDriverLocalService service;
 	public static AndroidDriver <AndroidElement>driver;
 	
-	public void startServer() {
-
-		CommandLine command = new CommandLine(
-				"/Applications/Appium.app/Contents/Resources/node/bin/node");
-		command.addArgument(
-				"/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js",
-				false);
-		command.addArgument("--address", false);
-		command.addArgument("127.0.0.1");
-		//command.addArgument("--port", false);
-		command.addArgument("4723");
-		//command.addArgument("--full-reset", false);
-		DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
-		DefaultExecutor executor = new DefaultExecutor();
-		executor.setExitValue(1);
-		try {
-			executor.execute(command, resultHandler);
-			Thread.sleep(5000);
-			System.out.println("Appium server started.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+	/*public AppiumDriverLocalService startServer() {
 		
+		
+	
+		boolean flag=checkIfServerIsRunnning(4723);
+		if(!flag)
+		{
+			service=AppiumDriverLocalService.buildDefaultService();
+			
+			service.start();
+		}
+		
+		
+		return service;
+	}
+	
+	
 	 public static boolean checkIfServerIsRunnning(int port) {
 			
 			boolean isServerRunning = false;
@@ -64,8 +55,15 @@ public class basic {
 				serverSocket = null;
 			}
 			return isServerRunning;
-		}
+		}*/
 	 
+	 
+	 public static void startEmulator() throws IOException {
+		 
+		 Runtime.getRuntime().exec(System.getProperty("user.dir")+"/src/main/java/resources/startEmulator.sh");
+		 
+		 
+	 }
 
  
 	 public static AndroidDriver<AndroidElement> Capabilities(String appName) throws IOException
@@ -79,8 +77,7 @@ public class basic {
     	DesiredCapabilities cap=new DesiredCapabilities();
     	String device=(String) prop.get("device");
     	cap.setCapability(MobileCapabilityType.DEVICE_NAME,device);
-    	
-    
+    	startEmulator();
      // cap.setCapability(MobileCapabilityType.DEVICE_NAME,"Android Device");
     	cap.setCapability(MobileCapabilityType.APP,fs.getAbsolutePath());
     	cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
@@ -90,6 +87,7 @@ public class basic {
     }
 	 
 	 public static void getScreenshot(String name) throws IOException {
+		 
 		 
 		File screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot,new File(System.getProperty("user.dir")+"//"+name+".png"));
