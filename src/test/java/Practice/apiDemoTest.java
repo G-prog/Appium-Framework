@@ -16,7 +16,7 @@ public class apiDemoTest extends basic {
 	public void apiDemo(String input) throws IOException
 	
 	{
-		//service=startServer();
+		service=startServer();
 		AndroidDriver <AndroidElement>driver=Capabilities("apidemo");
 		driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='3. Preference dependencies']").click();

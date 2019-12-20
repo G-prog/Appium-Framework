@@ -12,7 +12,7 @@ import io.appium.java_client.android.AndroidElement;
 public class EcommerceTest extends basic {
 @Test()
 public void totalValidation() throws IOException, InterruptedException {
-	//service=startServer();
+	service=startServer();
 		AndroidDriver<AndroidElement> driver=Capabilities("Generalstoreapk");
      	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
      	FormPage formPage=new FormPage(driver);
@@ -46,7 +46,7 @@ public void totalValidation() throws IOException, InterruptedException {
     	System.out.println(totalAmountvalue);
     	Assert.assertEquals(total, totalAmountvalue);
     	
-    	//service.stop();
+    	service.stop();
 
 }
 

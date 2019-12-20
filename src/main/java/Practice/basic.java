@@ -20,10 +20,10 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 public class basic {
 	
-	//public static AppiumDriverLocalService service;
+	public static AppiumDriverLocalService service;
 	public static AndroidDriver <AndroidElement>driver;
 	
-	/*public AppiumDriverLocalService startServer() {
+	public AppiumDriverLocalService startServer() {
 		
 		
 	
@@ -55,7 +55,7 @@ public class basic {
 				serverSocket = null;
 			}
 			return isServerRunning;
-		}*/
+		}
 	 
 	 
 	 public static void startEmulator() throws IOException {
